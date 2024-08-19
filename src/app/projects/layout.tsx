@@ -14,12 +14,12 @@ export default function ProjectsLayout({
 
   return (
     <>
-      <div className="flex h-full w-full flex-col items-center">
-        <div className="flex w-full max-w-[100rem] flex-row justify-between rounded-b-xl border-b border-l border-r border-white/10 bg-white/5 px-6 py-4 shadow-[0px_5px_24px_0px_rgba(248,248,248,0.03)_inset]">
+      <div className="m-4 flex h-full w-full flex-col items-center">
+        <div className="flex w-full max-w-[100rem] flex-row justify-between rounded-xl border border-white/10 bg-white/5 px-6 py-4 shadow shadow-[0px_5px_24px_0px_rgba(248,248,248,0.03)_inset] shadow-xl">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/">Projects</BreadcrumbLink>
+                <BreadcrumbLink href="/projects/">Projects</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
             </BreadcrumbList>
@@ -27,9 +27,10 @@ export default function ProjectsLayout({
 
           <div className="font-semibold tracking-tight">Select a project</div>
 
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row items-center gap-3">
             <div className="">GitHub</div>
-            <div className="">Articles</div>
+            <div className="h-1 w-1 rounded-full bg-white"></div>
+            <div className="">Article</div>
           </div>
         </div>
         <div>{children}</div>

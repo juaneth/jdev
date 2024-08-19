@@ -65,3 +65,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.texteffect {
+  background-image: url("/stolen.gif");
+  background-size: cover;
+  background-position: 0% 50%;
+  background-clip: text;
+  padding: 20px;
+}

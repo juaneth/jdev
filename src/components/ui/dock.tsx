@@ -72,7 +72,7 @@ const FloatingDockMobile = ({
                 <Link
                   href={item.href}
                   key={item.title}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-gray-50 dark:bg-neutral-900"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-lg"
                 >
                   <div className="w-[20px]">{item.icon}</div>
                 </Link>
@@ -83,9 +83,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="dark:bg-neutral-60 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5"
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-xl"
       >
-        <IconMenu2 className="h-[20px] text-neutral-500 dark:text-neutral-200" />
+        <IconMenu2 className="h-[20px] text-white" />
       </button>
     </div>
   );
@@ -104,7 +104,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "hidden h-[75px] items-end gap-4 rounded-2xl border border-white/10 bg-gray-50 px-5 pb-3 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] dark:bg-[rgba(40,40,40,0.70)] dark:bg-neutral-900 md:flex",
+        "hidden h-[75px] items-end gap-4 rounded-2xl border border-white/10 bg-black/40 px-5 pb-3 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.03)_inset] backdrop-blur-2xl md:flex",
         className,
       )}
     >
@@ -175,7 +175,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full border border-white/10 bg-gray-200 dark:bg-neutral-800"
+        className="relative flex aspect-square items-center justify-center rounded-full border border-white/10 bg-neutral-500/10 backdrop-blur-xl"
       >
         <AnimatePresence>
           {hovered && (
