@@ -1,0 +1,12 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: center;
+  perspective: 500px;
+}
+
+.mix {
+  mix-blend-mode: difference;
+}

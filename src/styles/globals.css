@@ -71,5 +71,29 @@
   background-size: cover;
   background-position: 0% 50%;
   background-clip: text;
+  padding: 10px;
+}
+
+.loadeffect {
+  background-image: url("/stolen.gif");
+  background-size: 100vw 100vh;
+  background-position: 0% 50%;
+  padding: 20px;
+}
+
+.grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, black 1px);
+  background-size: 8px 8px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  -moz-backdrop-filter: blur(3px);
+}
+
+.vhs {
+  background-image: url("/vhs.gif");
+  opacity: 0.1;
+  mix-blend-mode: color-dodge;
+  background-size: 100vw 100vh;
+  background-position: 0% 50%;
   padding: 20px;
 }
