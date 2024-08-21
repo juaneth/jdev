@@ -73,7 +73,7 @@ export default function Home() {
   sessionStorage.setItem("visited", "true");
 
   return (
-    <div className="relative flex w-full flex-col items-center gap-1 bg-[#101211]">
+    <div className="relative flex w-screen flex-col items-center gap-1 bg-[#101211]">
       <div className="vhs absolute h-full w-[200vh]"></div>
       <section className="w-screen overflow-hidden">
         <motion.div
@@ -201,7 +201,10 @@ export default function Home() {
             <p className="">
               I got started making the absolute worst winforms apps with my
               friend{" "}
-              <Button variant={"link"} className="text-md px-0 text-blue-200">
+              <Button
+                variant={"link"}
+                className="overflow-y-scroll px-0 text-sm text-blue-200"
+              >
                 <Link href={"https://silvias.uk"}>@silvias.uk</Link>
               </Button>{" "}
               back in 2019 (you can see these in my previous works section).
@@ -294,11 +297,13 @@ export default function Home() {
         <motion.section
           initial={{ opacity: 0, scaleX: 0.4, scaleY: 0.4 }}
           whileInView={
-            !openPrevWork && {
-              opacity: 1,
-              scaleX: 1,
-              scaleY: 1,
-            }
+            !openPrevWork
+              ? {
+                  opacity: 1,
+                  scaleX: 1,
+                  scaleY: 1,
+                }
+              : {}
           }
           animate={
             openPrevWork && {
@@ -319,7 +324,7 @@ export default function Home() {
           <motion.img
             src="/marbleball.png"
             alt="clickmepls"
-            className="fixed bottom-0 right-0"
+            className="fixed bottom-0 right-0 w-72 sm:w-auto"
           ></motion.img>
         </motion.section>
       </motion.div>
