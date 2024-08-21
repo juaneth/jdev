@@ -10,24 +10,24 @@ import {
   Instrument_Serif,
 } from "next/font/google";
 
-export const dm_sans = DM_Sans({ subsets: ["latin"] });
+const dm_sans = DM_Sans({ subsets: ["latin"] });
 
-export const instrument_serif = Instrument_Serif({
+const instrument_serif = Instrument_Serif({
   weight: ["400"],
   subsets: ["latin"],
 });
 
-export const instrument_serif_italic = Instrument_Serif({
+const instrument_serif_italic = Instrument_Serif({
   weight: ["400"],
   subsets: ["latin"],
   style: "italic",
 });
 
-export const dm_mono = DM_Mono({
+const dm_mono = DM_Mono({
   weight: ["400", "300", "500"],
   subsets: ["latin"],
 });
-export const dm_display = DM_Serif_Display({
+const dm_display = DM_Serif_Display({
   weight: ["400"],
   subsets: ["latin"],
 });
