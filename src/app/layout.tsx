@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 import Image from "next/image";
 
-export const dm_sans = DM_Sans({ subsets: ["latin"] });
+const dm_sans = DM_Sans({ subsets: ["latin"] });
 
 import Navbar from "@/components/layout/Navbar";
 
