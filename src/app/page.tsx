@@ -29,12 +29,14 @@ const dm_mono = DM_Mono({
   weight: ["400", "300", "500"],
   subsets: ["latin"],
 });
-export const dm_display = DM_Serif_Display({
+
+const dm_display = DM_Serif_Display({
   weight: ["400"],
   subsets: ["latin"],
 });
 
 import { useRef, useState } from "react";
+
 import {
   motion,
   useScroll,
