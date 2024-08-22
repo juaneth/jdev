@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-hover-card": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tabler/icons-react": "^3.12.0",

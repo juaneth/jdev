@@ -57,6 +57,9 @@ const DynamicHeader = dynamic(() => import("@/app/header"), {
     </section>
   ),
 });
+const Work = dynamic(() => import("@/app/work"), {
+  ssr: false,
+});
 
 import { ImageResponse } from "next/og";
 
@@ -74,6 +77,12 @@ export default function Home() {
     delay: 0,
     ease: [0.16, 1, 0.3, 1],
   };
+  let popInStart = {
+    type: "tween",
+    duration: 0.7,
+    delay: 0.7,
+    ease: [0.16, 1, 0.3, 1],
+  };
 
   const router = useRouter();
 
@@ -87,16 +96,14 @@ export default function Home() {
 
       <motion.div className="relative">
         <motion.section
-          initial={{ opacity: 1, scaleX: 1, scaleY: 1 }}
-          animate={
-            openPrevWork && {
-              opacity: 0,
-              scaleX: 0.4,
-              scaleY: 0.4,
-            }
-          }
-          transition={popIn}
-          className="long-section pointer-events-none relative flex w-screen flex-col gap-5 overflow-hidden p-8 sm:p-16 sm:px-32 lg:h-screen"
+          initial={{ opacity: 0, scaleX: 0.4, scaleY: 0.4 }}
+          animate={{
+            opacity: 1,
+            scaleX: 1,
+            scaleY: 1,
+          }}
+          transition={popInStart}
+          className="long-section pointer-events-none relative flex w-screen flex-col gap-5 overflow-hidden p-12 md:p-16 md:px-32 lg:h-screen"
         >
           <div className="relative flex flex-row">
             <h1
@@ -108,14 +115,14 @@ export default function Home() {
             <img
               src="/PNG/17-02.png"
               alt=""
-              className="ml-5 h-12"
+              className="ml-5 h-8 sm:h-12"
               style={{
                 filter: "brightness(1000%)",
               }}
             />
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="mb-[50vh] flex flex-col gap-8 sm:pb-0">
             <div
               className={`${dm_sans.className} flex flex-col gap-3 border-l border-white/20 pl-5`}
             >
@@ -165,12 +172,14 @@ export default function Home() {
                 was my moment where I realised web development was going to be
                 my passion. I still enjoyed general programming and solving
                 problems but creating something visually and seeing it work with
-                different looks and styles was incredible to me.
+                different looks and styles was incredible to me. I've since
+                tried out other languages like Rust and Python but this is still
+                my main passion.
               </p>
 
               <p>
-                Ever since then I've been striving to make better designs, climb
-                higher and hopefully make a living out of my passion.
+                I've been striving to make better designs, climb higher and
+                hopefully make a living out of my passion.
               </p>
             </div>
 
@@ -190,61 +199,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="h-screen sm:h-96"></div>
-
           <motion.img
             src="/info.png"
             alt="clickmepls"
-            className="fixed bottom-0 right-0 w-64 max-w-[600px] sm:w-1/3"
+            className="fixed bottom-0 right-0 w-64 max-w-[300px] sm:w-1/3"
           ></motion.img>
         </motion.section>
       </motion.div>
 
-      <motion.div className="relative">
-        <motion.div
-          onClick={() => {
-            setOpenPrevWork(true);
-
-            setTimeout(() => {
-              router.push("/work");
-            }, 500);
-          }}
-          animate={
-            openPrevWork
-              ? {
-                  position: "fixed",
-                  backgroundColor: "#FFF",
-                  zIndex: "20",
-                  scaleX: 1,
-                  scaleY: 1,
-                  left: 0,
-                  top: 0,
-                  borderRadius: "0px",
-                  border: "0px",
-                  padding: "0px",
-                }
-              : {
-                  borderRadius: "20px",
-                  opacity: 1,
-                  scaleX: 0.4,
-                  scaleY: 0.4,
-                  backgroundColor: "#FFF",
-                  left: 0,
-                }
-          }
-          transition={{
-            duration: 0.5,
-            ease: "circInOut",
-          }}
-          className="pointer-events-auto absolute top-0 flex h-screen w-screen items-center justify-center overflow-hidden border-2 border-white bg-white p-2"
-        >
-          <div className="pointer-events-none z-0 flex h-full w-full items-center justify-center">
-            <h1 className="text-5xl text-black">
-              Click to open this experience
-            </h1>
-          </div>
-        </motion.div>
-
+      <motion.div className="relative flex items-center justify-center">
         <motion.section
           initial={{ opacity: 0, scaleX: 0.4, scaleY: 0.4 }}
           whileInView={
@@ -264,7 +227,7 @@ export default function Home() {
             }
           }
           transition={popIn}
-          className="pointer-events-none relative flex h-screen w-screen flex-col gap-5 overflow-hidden p-8 sm:p-16 sm:px-32"
+          className="pointer-events-none relative flex h-screen w-screen flex-col gap-5 overflow-hidden p-12 md:p-16 md:px-32"
         >
           <h1
             className={`font-italic text-5xl font-bold tracking-tight text-white opacity-90 sm:text-8xl ${instrument_serif_italic.className}`}
@@ -275,52 +238,14 @@ export default function Home() {
           <motion.img
             src="/marbleball.png"
             alt="clickmepls"
-            className="fixed bottom-0 right-0 w-72 sm:w-auto"
+            className="fixed bottom-0 right-0 w-64 max-w-[300px] sm:w-[35%]"
           ></motion.img>
         </motion.section>
+        
+        <Work></Work>
       </motion.div>
 
       <motion.div className="relative">
-        <motion.div
-          onClick={() => {
-            setOpenPrevWork(true);
-
-            setTimeout(() => {
-              router.push("/work");
-            }, 500);
-          }}
-          animate={
-            openPrevWork
-              ? {
-                  position: "fixed",
-                  backgroundColor: "#FFF",
-                  zIndex: "20",
-                  scaleX: 1,
-                  scaleY: 1,
-                  left: 0,
-                  top: 0,
-                  borderRadius: "0px",
-                  border: "0px",
-                  padding: "0px",
-                }
-              : {
-                  borderRadius: "20px",
-                  opacity: 1,
-                  scaleX: 0.4,
-                  scaleY: 0.4,
-                  backgroundColor: "#FFF",
-                  left: 0,
-                }
-          }
-          transition={{
-            duration: 0.5,
-            ease: "circInOut",
-          }}
-          className="pointer-events-auto absolute top-0 flex h-screen w-screen items-center justify-center overflow-hidden border-2 border-white bg-white p-2"
-        >
-          <h1 className="text-5xl text-black">Click to open this experience</h1>
-        </motion.div>
-
         <motion.section
           initial={{ opacity: 0, scaleX: 0.4, scaleY: 0.4 }}
           whileInView={
@@ -340,18 +265,17 @@ export default function Home() {
             }
           }
           transition={popIn}
-          className="pointer-events-none relative flex h-screen w-screen flex-col gap-5 overflow-hidden p-8 sm:p-16 sm:px-32"
+          className="pointer-events-none relative z-50 flex h-screen w-screen flex-col gap-5 overflow-hidden p-12 md:p-16 md:px-32"
         >
           <h1
             className={`font-italic text-5xl font-bold tracking-tight text-white opacity-90 sm:text-8xl ${instrument_serif_italic.className}`}
           >
             Articles
           </h1>
-
           <motion.img
             src="/pen.png"
             alt="clickmepls"
-            className="fixed bottom-0 right-0 h-72 sm:h-auto"
+            className="fixed bottom-0 right-0 w-64 max-w-[300px] sm:w-1/3"
           ></motion.img>
         </motion.section>
       </motion.div>
@@ -360,7 +284,7 @@ export default function Home() {
         initial={{ opacity: 0, scaleX: 0.1, scaleY: 0.1 }}
         whileInView={{ opacity: 1, scaleX: 1, scaleY: 1 }}
         transition={popIn}
-        className="flex h-screen w-full flex-col gap-5 overflow-hidden p-8 sm:p-16 sm:px-32"
+        className="flex h-screen w-full flex-col gap-5 overflow-hidden p-8 md:p-16 md:px-32"
       >
         <h1
           className={`font-italic text-5xl font-bold tracking-tight text-white opacity-90 sm:text-8xl ${instrument_serif_italic.className}`}
@@ -378,7 +302,7 @@ export default function Home() {
           delay: 0,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="flex h-screen w-full flex-col items-center justify-center gap-5 overflow-hidden bg-[#FAF5E2] p-8 text-center sm:p-16 sm:px-32"
+        className="flex h-screen w-full flex-col items-center justify-center gap-5 overflow-hidden bg-[#FAF5E2] p-12 text-center md:p-16 md:px-32"
       >
         <img
           src="/grain2.png"
@@ -387,23 +311,23 @@ export default function Home() {
         />
         <div className="flex flex-col items-center justify-center overflow-hidden p-8 py-12 text-center sm:px-32 sm:py-20">
           <h1
-            className={`text-2xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
+            className={`text-3xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
           >
             this has been a
           </h1>
           <h1
-            className={`texteffect z-10 text-5xl font-bold italic text-transparent sm:text-[140px] sm:tracking-[-0.75rem] ${dm_sans.className}`}
+            className={`texteffect z-10 text-6xl font-bold italic tracking-tighter text-transparent sm:text-[140px] sm:tracking-[-0.75rem] ${dm_sans.className}`}
           >
             juaneth.dev
           </h1>
 
           <h1
-            className={`text-2xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
+            className={`text-3xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
           >
             production.
           </h1>
 
-          <div className="my-5 h-[1px] w-2/3 bg-neutral-700 sm:my-8"></div>
+          <div className="my-5 h-[1px] w-full bg-neutral-700 sm:my-8"></div>
 
           <h2
             className={`text-2xl text-[#241D26] opacity-90 ${instrument_serif.className}`}

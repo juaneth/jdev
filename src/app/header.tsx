@@ -111,7 +111,7 @@ export default function Header() {
                 i am a
               </h1>
               <h1
-                className={`texteffect z-10 text-5xl italic text-transparent sm:text-[70px] sm:tracking-[-2.96px] ${instrument_serif_italic.className}`}
+                className={`texteffect z-10 text-6xl italic text-transparent sm:text-[70px] sm:tracking-[-2.96px] ${instrument_serif_italic.className}`}
               >
                 web developer and designer
               </h1>
