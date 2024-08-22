@@ -32,7 +32,7 @@ const dm_display = DM_Serif_Display({
   subsets: ["latin"],
 });
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -43,6 +43,10 @@ import {
 
 import { useRouter } from "next/navigation";
 export default function Work() {
+  useEffect(() => {
+    sessionStorage.setItem("linked", "true");
+  }, []);
+
   return (
     <div className="relative flex h-screen w-screen bg-[#FAF5E2] px-32 py-16 text-black">
       <img

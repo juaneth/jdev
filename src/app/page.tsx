@@ -37,20 +37,28 @@ const dm_display = DM_Serif_Display({
 
 import { useRef, useState, useEffect } from "react";
 
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue,
-  delay,
-} from "framer-motion";
-
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
+import { motion, AnimatePresence } from "framer-motion";
 
 import { useRouter } from "next/navigation";
+
+import dynamic from "next/dynamic";
+
+const DynamicHeader = dynamic(() => import("@/app/header"), {
+  ssr: false,
+  loading: () => (
+    <section
+      className={`flex h-screen w-screen flex-col items-center justify-center bg-[#FAF5E2]`}
+    >
+      <img
+        src="/grain2.png"
+        alt="grain"
+        className="absolute h-screen w-full rotate-180 opacity-40"
+      />
+    </section>
+  ),
+});
+
+import { ImageResponse } from "next/og";
 
 export default function Home() {
   let standardTransition = {
@@ -71,93 +79,11 @@ export default function Home() {
 
   const [openPrevWork, setOpenPrevWork] = useState(false);
 
-  const [visited, setVisited] = useState(() => {
-    if (window) {
-      return sessionStorage.getItem("visited");
-    }
-  });
-
-  useEffect(() => {
-    sessionStorage.setItem("visited", "true");
-  });
-
   return (
     <div className="relative flex w-screen flex-col items-center gap-1 bg-[#101211]">
       <div className="vhs absolute h-full w-[100vw]"></div>
-      <section className="w-screen overflow-hidden">
-        <motion.div
-          initial={
-            visited === "true"
-              ? {}
-              : {
-                  height: "100vh",
-                  width: "100%",
-                  borderRadius: "0px",
-                }
-          }
-          animate={{
-            height: "auto",
-          }}
-          transition={standardTransition}
-          className={
-            "z-50 flex w-full flex-col items-center justify-center overflow-hidden bg-[#FAF5E2] text-center"
-          }
-        >
-          <img
-            src="/grain2.png"
-            alt="grain"
-            className="absolute h-screen w-full rotate-180 opacity-40"
-          />
-          <div className="flex flex-col items-center justify-center overflow-hidden p-8 py-12 text-center sm:px-32 sm:py-20">
-            <h1
-              className={`text-2xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
-            >
-              i am a {visited}
-            </h1>
-            <h1
-              className={`texteffect z-10 text-5xl italic text-transparent sm:text-[70px] sm:tracking-[-2.96px] ${instrument_serif_italic.className}`}
-            >
-              web developer and designer
-            </h1>
 
-            <h1
-              className={`text-2xl text-[#241D26] opacity-90 sm:text-4xl ${instrument_serif.className}`}
-            >
-              from the UK.
-            </h1>
-
-            <div className="my-5 h-[1px] w-2/3 bg-neutral-700 shadow shadow-xl shadow-black sm:my-8"></div>
-
-            <h2
-              className={`text-2xl text-[#241D26] opacity-90 ${instrument_serif.className}`}
-            >
-              Want to learn more about me? Keep reading
-            </h2>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={
-            visited == "true"
-              ? {
-                  opacity: 0,
-                }
-              : {
-                  height: "100%",
-                  width: "100%",
-                }
-          }
-          animate={{
-            opacity: 0,
-          }}
-          transition={{
-            delay: 1,
-            duration: 1.5,
-            ease: "circInOut",
-          }}
-          className="loadeffect fixed top-0 z-50 bg-white"
-        ></motion.div>
-      </section>
+      <DynamicHeader></DynamicHeader>
 
       <motion.div className="relative">
         <motion.section
@@ -312,11 +238,11 @@ export default function Home() {
           }}
           className="pointer-events-auto absolute top-0 flex h-screen w-screen items-center justify-center overflow-hidden border-2 border-white bg-white p-2"
         >
-          <iframe
-            src="/work"
-            className="pointer-events-none z-0 h-full w-full"
-            title="work page"
-          ></iframe>
+          <div className="pointer-events-none z-0 flex h-full w-full items-center justify-center">
+            <h1 className="text-5xl text-black">
+              Click to open this experience
+            </h1>
+          </div>
         </motion.div>
 
         <motion.section
@@ -392,11 +318,7 @@ export default function Home() {
           }}
           className="pointer-events-auto absolute top-0 flex h-screen w-screen items-center justify-center overflow-hidden border-2 border-white bg-white p-2"
         >
-          <iframe
-            src="/work"
-            className="pointer-events-none z-0 h-full w-full"
-            title="work page"
-          ></iframe>
+          <h1 className="text-5xl text-black">Click to open this experience</h1>
         </motion.div>
 
         <motion.section
