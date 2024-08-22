@@ -29,11 +29,10 @@ export default function RootLayout({
     <html className="dark" lang="en">
       <body
         className={cn(
-          "flex min-h-screen flex-col antialiased lg:flex-row",
+          "flex min-h-screen flex-col antialiased",
           dm_sans.className,
         )}
       >
-        <Navbar></Navbar>
         {children}
       </body>
     </html>

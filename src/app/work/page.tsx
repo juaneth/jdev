@@ -41,10 +41,6 @@ import {
   MotionValue,
 } from "framer-motion";
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
-
 import { useRouter } from "next/navigation";
 export default function Work() {
   return (
@@ -59,7 +55,6 @@ export default function Work() {
       >
         Previous work:
       </h1>
-      <motion.div></motion.div>
     </div>
   );
 }
