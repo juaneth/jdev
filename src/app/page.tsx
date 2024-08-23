@@ -61,6 +61,10 @@ const Work = dynamic(() => import("@/app/work"), {
   ssr: false,
 });
 
+const ArticlesList = dynamic(() => import("@/app/articlesList"), {
+  ssr: false,
+});
+
 import { ImageResponse } from "next/og";
 
 export default function Home() {
@@ -241,7 +245,7 @@ export default function Home() {
             className="fixed bottom-0 right-0 w-64 max-w-[300px] sm:w-[35%]"
           ></motion.img>
         </motion.section>
-        
+
         <Work></Work>
       </motion.div>
 
@@ -272,6 +276,9 @@ export default function Home() {
           >
             Articles
           </h1>
+
+          <ArticlesList></ArticlesList>
+          
           <motion.img
             src="/pen.png"
             alt="clickmepls"
@@ -291,6 +298,37 @@ export default function Home() {
         >
           Contact me
         </h1>
+
+        <div className="h-[1px] w-full bg-white"></div>
+
+        <ul className="my-6 ml-6 list-disc space-y-4 pl-4 text-lg tracking-tight [&>li]:mt-2">
+          <li>
+            <h1 className="mb-1 ml-1 text-3xl font-semibold tracking-tighter">
+              Email:
+            </h1>{" "}
+            <Button variant={"link"} className="text-lg">
+              <Link href={"mailto:juan@juaneth.dev"}>juan@juaneth.dev</Link>
+            </Button>
+          </li>
+          <li>
+            <h1 className="mb-1 ml-1 text-3xl font-semibold tracking-tighter">
+              Hiring:
+            </h1>{" "}
+            <Button variant={"link"} className="text-lg">
+              <Link href={"mailto:juan@juaneth.dev"}>hire@juaneth.dev</Link>
+            </Button>
+          </li>
+          <li>
+            <h1 className="mb-1 ml-1 text-3xl font-semibold tracking-tighter">
+              Discord:
+            </h1>{" "}
+            <Button variant={"link"} className="text-lg">
+              <Link href={"https://discord.com/users/910968511273263104"}>
+                @juaneth
+              </Link>
+            </Button>
+          </li>
+        </ul>
       </motion.section>
 
       <motion.section

@@ -42,7 +42,7 @@ export default function Work() {
     },
     {
       name: "uniSSH",
-      url: "https://github.com/juaneth/uniSSH",
+      url: "https://github.com/uniSSH-Team/uniSSH-releases",
       screenshot: "/screenshots/unissh.png",
       description: "An SSH Client built around customisability",
       subdescription:
@@ -105,7 +105,7 @@ export default function Work() {
         <div className="relative flex h-min flex-wrap gap-3 p-3 md:w-3/4 md:justify-end">
           {projects.map((project) => {
             return (
-              <HoverCard>
+              <HoverCard key={project.url}>
                 <HoverCardTrigger>
                   <motion.div
                     whileHover={{ scale: 1.2 }}
@@ -143,7 +143,7 @@ export default function Work() {
         <div className="relative flex h-min w-3/4 flex-wrap justify-start gap-3 p-3">
           {designs.map((design) => {
             return (
-              <HoverCard>
+              <HoverCard key={design.name}>
                 <HoverCardTrigger>
                   <motion.div
                     whileHover={{ scale: 1.2 }}

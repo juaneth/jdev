@@ -1,0 +1,25 @@
+.article h1 {
+  font-size: 2.7rem;
+  margin-bottom: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+.article h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+
+.article h3 {
+  font-size: 1.3rem;
+}
+
+.article a {
+  color: rgb(116, 156, 218);
+}
+
+.article {
+  font-size: 1rem;
+}
